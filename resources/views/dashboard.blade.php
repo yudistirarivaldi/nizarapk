@@ -3,7 +3,7 @@
 @section('content')
     <!-- Body Wrapper -->
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-      data-sidebar-position="fixed" data-header-position="fixed">
+        data-sidebar-position="fixed" data-header-position="fixed">
 
         <div class="container-fluid">
             <!-- Row 1 -->
@@ -32,7 +32,7 @@
                                     <i class="ti ti-database"></i>
                                 </h2>
                                 <h3>
-                                     Total Rumah
+                                    Total Rumah
                                 </h3>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                                     <i class="ti ti-category-2"></i>
                                 </h2>
                                 <h3>
-                                     Total Surat
+                                    Total Surat
                                 </h3>
                             </div>
                         </div>
@@ -77,7 +77,7 @@
                         <div class="card-header card-header-primary">
                             <h3 class="card-title"><b>Laporan Hari Ini</b></h3>
                             {{-- {{ $dateNow->format('d F Y') }} --}}
-                        {{-- </div>
+            {{-- </div>
                         <div class="card-body">
                             <div class="row text-center">
                                 <div class="col-6 col-md-3">
@@ -159,6 +159,39 @@
                     }
                 });
             </script> --}}
+            <!-- SweetAlert CSS -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+            <script>
+                @if (Session::has('toast_success'))
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: '{{ Session::get('toast_success') }}',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        toast: true,
+                        customClass: {
+                            popup: 'colored-toast',
+                        }
+                    });
+                @endif
+
+                @if (Session::has('toast_error'))
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: '{{ Session::get('toast_error') }}',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        toast: true,
+                        customClass: {
+                            popup: 'colored-toast',
+                        }
+                    });
+                @endif
+            </script>
         </div>
     </div>
 @endsection
