@@ -32,15 +32,15 @@
                                         <!-- Kategori Rumah Kaca (Select2 Dropdown) -->
                                         <div class="form-group">
                                             <label for="rumahkaca">Pilih Rumah Kaca</label>
-                                            <select class="form-select" name="id_ebook" id="rumahkaca" style="border-radius: 8px;" required>
+                                            <select class="form-select" name="id_masterrumahkaca" id="rumahkaca" style="border-radius: 8px;" required>
                                                 <option value="">Pilih Rumah Kaca</option>
                                                 @foreach ($masterrumahkaca as $kategori)
-                                                    <option value="{{ $kategori->id }}" @if(old('id_ebook') == $kategori->id) selected @endif>
+                                                    <option value="{{ $kategori->id }}" @if(old('id_masterrumahkaca') == $kategori->id) selected @endif>
                                                         {{ $kategori->rmhkaca }}
                                                     </option>
                                                 @endforeach
                                             </select>
-                                            @error('id_ebook')
+                                            @error('id_masterrumahkaca')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>

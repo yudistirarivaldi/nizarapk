@@ -17,7 +17,7 @@
                                     <i class="ti ti-book"></i>
                                 </h2>
                                 <h3>
-                                     jumlah data surat
+                                    Penyewa
                                 </h3>
                             </div>
                         </div>
@@ -32,7 +32,7 @@
                                     <i class="ti ti-database"></i>
                                 </h2>
                                 <h3>
-                                     Disposisi
+                                     Total Rumah
                                 </h3>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                                     <i class="ti ti-columns"></i>
                                 </h2>
                                 <h3>
-                                    jumlah klasifikasi surat
+                                    Pengajuan Sewa
                                 </h3>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                                     <i class="ti ti-category-2"></i>
                                 </h2>
                                 <h3>
-                                     Tujuan disposisi
+                                     Total Surat
                                 </h3>
                             </div>
                         </div>
@@ -71,13 +71,13 @@
             </div>
 
             <!-- REPORT TODAY -->
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header card-header-primary">
                             <h3 class="card-title"><b>Laporan Hari Ini</b></h3>
                             {{-- {{ $dateNow->format('d F Y') }} --}}
-                        </div>
+                        {{-- </div>
                         <div class="card-body">
                             <div class="row text-center">
                                 <div class="col-6 col-md-3">
@@ -118,7 +118,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Grafik Peminjaman Buku -->
             {{-- <div class="row mt-5">

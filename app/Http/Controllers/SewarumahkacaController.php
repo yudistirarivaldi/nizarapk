@@ -32,20 +32,18 @@ class SewarumahkacaController extends Controller
     }
 
 
+    // return($request->all());
     public function store(Request $request)
 {
-    dd($request->all());
-    // Validasi input
     $request->validate([
-        'masterrumahkaca_id' => 'required|exists:masterrumahkacas,id', // Validasi ID kategori rumah kaca
+        'masterrumahkaca_id' => 'required|exists:masterrumahkacas,id',
         'namapenyewa' => 'required|string|max:255',
         'keperluan' => 'required|string|max:255',
-        'tanggal_start' => 'required|date|before_or_equal:tanggal_end', // Validasi tanggal mulai
-        'tanggal_end' => 'required|date|after_or_equal:tanggal_start', // Validasi tanggal akhir
-        'buktibayar' => 'required|file|mimes:jpg,jpeg,png,pdf|max:2048', // Validasi file bukti bayar
+        'tanggal_start' => 'required|date|before_or_equal:tanggal_end',
+        'tanggal_end' => 'required|date|after_or_equal:tanggal_start',
+        'buktibayar' => 'required|file|mimes:jpg,jpeg,png,pdf|max:2048',
     ]);
 
-    // Ambil data dari request
     $data = $request->only([
         'masterrumahkaca_id',
         'namapenyewa',
@@ -54,22 +52,16 @@ class SewarumahkacaController extends Controller
         'tanggal_end',
     ]);
 
-    // Proses upload file bukti pembayaran
     if ($request->hasFile('buktibayar')) {
-        // Ambil file yang di-upload
         $file = $request->file('buktibayar');
 
-        // Tentukan nama file yang unik
         $fileName = time() . '_' . $file->getClientOriginalName();
 
-        // Tentukan folder tempat menyimpan file
         $filePath = $file->storeAs('public/buktibayar', $fileName);
 
-        // Menambahkan path file ke data
         $data['buktibayar'] = $filePath;
     }
 
-    // Simpan data ke dalam database
     Sewarumahkaca::create($data);
 
     // Redirect dengan pesan sukses

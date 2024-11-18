@@ -46,7 +46,7 @@ Route::prefix('dashboard')->middleware(['auth:sanctum'])->group(function() {
 // Route::get('suratdisposisipdf', [SuratdisposisiController::class, 'suratdisposisipdf'])->name('suratdisposisipdf');
 
 // Rute untuk menampilkan laporan anggota
-Route::get('laporannya/laporananggota', [MasteranggotaController::class, 'perkelas'])->name('laporananggota');
+// Route::get('laporannya/laporananggota', [MasteranggotaController::class, 'perkelas'])->name('laporananggota');
 
 // Rute untuk mengekspor PDF
 // Route::get('/perkelaspdf', [MasteranggotaController::class, 'cetakPerkelasPdf'])->name('laporananggotapdf');
